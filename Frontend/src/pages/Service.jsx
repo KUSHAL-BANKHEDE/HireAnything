@@ -10,8 +10,8 @@ function MyService() {
   return (
     <>
               <Libraries/>
-       
-            <Headers/>
+{/*        
+            <Headers/> */}
             <Banner/>
             <Service/>
             <Footer/>

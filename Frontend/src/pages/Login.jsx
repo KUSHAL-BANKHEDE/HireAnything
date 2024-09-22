@@ -12,7 +12,7 @@ function Categories() {
     <>
               <Libraries/>
            
-            <Headers/>
+            {/* <Headers/> */}
             <Banner/>
             <Login/>
             <Footer/>

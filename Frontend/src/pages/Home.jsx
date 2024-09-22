@@ -14,7 +14,7 @@ function Home() {
  
           
  <Libraries/>
-            <Headers/>
+            {/* <Headers/> */}
             <Banner/>
             
              <Category/>

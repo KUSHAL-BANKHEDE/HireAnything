@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Example static data
 const categories = [
@@ -14,8 +14,8 @@ const SearchPage = () => {
     const [results, setResults] = useState([]);
     const [message, setMessage] = useState('');
 
-    // Handle search functionality
-    const handleSearch = () => {
+    // Handle search functionality inside useEffect for live search
+    useEffect(() => {
         if (!query) {
             setMessage('Please enter a search term.');
             setResults([]);
@@ -34,7 +34,7 @@ const SearchPage = () => {
             setResults([]);
             setMessage('No results found. Kindly contact us, and we will provide a solution.');
         }
-    };
+    }, [query]); // useEffect triggers whenever 'query' changes
 
     return (
         <div>
@@ -45,14 +45,13 @@ const SearchPage = () => {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search..."
             />
-            <button onClick={handleSearch}>Search</button>
 
             {/* Display message below the search box */}
             {message && <p style={{ color: 'red' }}>{message}</p>}
 
             <ul>
                 {results.length > 0 && results.map((result) => (
-                    <li key={result.id}>{result.name}</li> // Adjust based on your data structure
+                    <li key={result.id}>{result.name}</li>
                 ))}
             </ul>
         </div>

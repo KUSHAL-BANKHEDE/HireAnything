@@ -11,7 +11,7 @@ function About() {
     <>
               <Libraries/>
        
-            <Headers/>
+            {/* <Headers/> */}
             <Banner/>
             <SearchPage/>
             <Footer/>

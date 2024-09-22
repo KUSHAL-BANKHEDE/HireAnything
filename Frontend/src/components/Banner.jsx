@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useLocation } from 'react-router-dom';
+
 
 // Example static data
 const categories = [
@@ -54,9 +55,7 @@ export default function Banner() {
   const [results, setResults] = useState([]);
   const [message, setMessage] = useState('');
 
-  const handleSearch = (event) => {
-    event.preventDefault(); // Prevent the default form submit behavior
-
+  useEffect(() => {
     if (!query) {
       setMessage('Please enter a search term.');
       setResults([]);
@@ -75,10 +74,10 @@ export default function Banner() {
       setResults([]);
       setMessage('No results found. Kindly contact us, and we will provide a solution.');
     }
-  };
+  }, [query]); 
 
   const handleResultClick = () => {
-    window.location.href = 'https://www.hireanything.com/login';
+    window.location.href = 'http://localhost:5173/cart';
   };
 
   return (
@@ -93,7 +92,7 @@ export default function Banner() {
        
               <div className="search-page-wrapper container ">
 
-                <form onSubmit={handleSearch}>
+                <form >
                 <h5 className="text-white pb-10">{banner.subtitle}</h5>
 
                   <input

@@ -12,7 +12,7 @@ function Partner() {
   return (
     <>
             <Libraries/>
-            <Headers/>
+            {/* <Headers/> */}
             <Banner/>
             
             <Partnersignup/>

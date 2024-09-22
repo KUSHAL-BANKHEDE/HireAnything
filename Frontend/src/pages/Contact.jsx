@@ -12,7 +12,7 @@ function Contact() {
   return (
     <>
             <Libraries/>
-            <Headers/>
+            {/* <Headers/> */}
             <Banner/>
             
             <Contactmy/>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { PartnerApi } from '../utils/constent';
 
 const PartnerSignUp = () => {
   const [step, setStep] = useState(1);
@@ -51,7 +52,7 @@ const sendOtp = async () => {
 
   try {
     // Send OTP to backend and email
-    await axios.post('http://localhost:5001/api/send-otp', { email: formData.email});
+    await axios.post(`${PartnerApi}/api/send-otp`, { email: formData.email});
     setOtpSent(true);
     setError('');
     console.log(`OTP sent to ${formData.email}`);
