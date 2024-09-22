@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { PartnerApi } from '../utils/constent';
+import { Local_host, PartnerApi } from '../utils/constent';
+
 
 const PartnerSignUp = () => {
   const [step, setStep] = useState(1);
@@ -66,7 +67,7 @@ const sendOtp = async () => {
   // Verify OTP function
   const verifyOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:5001/api/verify-otp', {
+      const response = await axios.post(`${PartnerApi}/api/verify-otp`, {
         email: formData.email,
         otp: formData.otp
       });
