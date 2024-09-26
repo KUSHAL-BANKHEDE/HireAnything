@@ -173,6 +173,10 @@ app.post('/api/send-email', async (req, res) => {
     res.status(500).send('Error processing form');
   }
 });
+app.get('/' ,(req , res)=>{
+    
+  res.send("Hello world Backend is runing");
+} )
 
 
 
