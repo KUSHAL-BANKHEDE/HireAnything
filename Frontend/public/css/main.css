@@ -2177,13 +2177,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-top .header-top-right .header-social a {
-  color: #fff;
+  color: #fafafa;
   margin-left: 15px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   font-size: 15px;
+  background-color: #324187;
+  padding: 5px;
+  border-radius: 11px;
 }
 
 .header-top .header-top-right .header-social a:hover {
@@ -2206,8 +2209,8 @@ h3.primary-btn {
 .main-menu {
   background-color: rgb(72 39 96 / 40%);
   border-radius: 262px;
-  width: 73%;
-  margin-left: 277px;
+  width: 84%;
+  margin-left: 122px;
   padding-right: -15px;
 }
 
@@ -2710,9 +2713,7 @@ section.home-about-area.inner {
  
 }
 
-.banner-area .overlay-bg {
-  background: rgb(92 97 117 / 36%);
-}
+
 
 @media (max-width: 767px) {
   .banner-area .fullscreen {
@@ -4972,7 +4973,7 @@ form {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #1d3967a1;
+  background-color: #13115cd4;
 }
 
 /* Heading styles */
@@ -4990,8 +4991,10 @@ form input[type="email"], form input[type="password"], form input[type="tel"], f
   border-radius: 11px;
   font-size: 19px;
 }
-
-form input[type="file"] {
+form.partnerform {
+  background-color: #1d3967a1;
+  margin: 33px;
+}form input[type="file"] {
   margin-bottom: 10px;
 }
 
@@ -5303,4 +5306,9 @@ a.catprimary-btn.text-uppercase:hover {
 
 a.font-bold.text-yellow.dark\:text-yellow.hover\:text-yellow.duration-300:hover {
     font-size: 19px;
+}
+
+p.copyright {
+  color: white;
+  font-size: 16px;
 }

@@ -168,9 +168,9 @@ const sendOtp = async () => {
     <Container>
       {showSuccess && <Alert variant="success">Registration successful! Redirecting...</Alert>}
       {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}  className="partnerform">
         {step === 1 && (
-          <div>
+          <div className='partnerform'>
             <h2>Create Your Partner Account</h2>
             <Form.Group>
               <Form.Control

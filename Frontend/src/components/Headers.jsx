@@ -6,14 +6,15 @@ const navlinks = [
   { name: 'Home', route: '/' },
   { name: 'About', route: '/about' },
   { name: 'Category', route: '/category' },
-  { name: 'Contact', route: '/contact' },
-  { name: 'Partner Signup', route: '/partner' },
   { name: 'Our Services', route: '/service' },
+  { name: 'Partner Signup', route: '/partner' },
+  { name: 'Offerings', route: '/service' },
+  { name: 'Contact', route: '/contact' },
 ];
 
 export default function Headers() {
   const [navBg, setNavBg] = useState('bg-[#4010f2]'); // Placeholder for your background logic
-  const [menuOpen, setMenuOpen] = useState(false); // State to toggle menu
+  const [menuOpen, setMenuOpen] = useState(false); // State to toggnle menu
   const [location, setLocation] = useState({
     latitude: null,
     longitude: null,

@@ -106,7 +106,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
-            <p>
+            <p className='copyright'>
               © {currentYear} {websiteName}. All rights reserved 
              
             </p>              <div className="footer-social d-flex align-items-center">
