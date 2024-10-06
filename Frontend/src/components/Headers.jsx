@@ -68,6 +68,25 @@ export default function Headers() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  
+
+
+  const UserButton = (
+    <>
+    <ul className='btn'>
+
+<li> <a href="https://www.facebook.com/profile.php?id=61565067325640&sk=photos">
+      Signup
+      </a></li>
+      <li> <a href="https://www.facebook.com/profile.php?id=61565067325640&sk=photos">
+       Login
+      </a></li>
+    </ul>
+
+     
+     
+    </>
+  );
 
   const socialItems = (
     <>
@@ -91,8 +110,13 @@ export default function Headers() {
       <div className="header-top">
         <div className="container page-wrapper">
           <div className="row align-items-center">
-            <div className="col-lg-6 col-sm-6 col-6 header-top-left"></div>
+            <div className="col-lg-6 col-sm-6 col-6 header-top-left">
+
+            {  UserButton}
+
+            </div>
             <div className="col-lg-6 col-sm-6 col-6 header-top-right">
+     
               <div className="header-social mb-50">
                 {socialItems}
               </div>

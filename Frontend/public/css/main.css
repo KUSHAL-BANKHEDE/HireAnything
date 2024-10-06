@@ -2212,9 +2212,8 @@ h3.primary-btn {
   width: 84%;
   margin-left: 122px;
   padding-right: -15px;
+  margin-top: 33px;
 }
-
-
 #header {
   position: fixed;
   left: 0;
@@ -4659,12 +4658,7 @@ h3.primary-btn.cat {
   transition: all 0.3s ease 0s;
 }
 
-@media (max-width: 991.98px) {
-  .footer-social {
-    text-align: left;
-    margin-top: 20px;
-  }
-}
+
 label.form-check-label {
   color: rgb(43, 39, 39);
 }
@@ -5172,7 +5166,7 @@ button.primary-btn.text-uppercase {
 }
 .align-items-center {
   align-items: center !important;
-  height: 95px !important;
+  height: 75px  !important;
 }.topnav {
   margin: 0px;
   width: 310px;
@@ -5311,4 +5305,116 @@ a.font-bold.text-yellow.dark\:text-yellow.hover\:text-yellow.duration-300:hover 
 p.copyright {
   color: white;
   font-size: 16px;
+}
+
+@media only screen and (width: 912px) and (height: 1368px) {
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.mobile-container {
+  display: block;
+}
+
+.icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+#logo .sitename {
+  font-size: 1.2rem;
+}
+
+#myLinks {
+  display: none;
+}
+
+#myLinks.active {
+  display: block;
+}
+
+.nav-menu li a {
+  padding: 10px;
+  text-align: center;
+}
+
+.align-items-center {
+align-items: center !important;
+height: 75px  !important;
+}.topnav {
+margin: 0px;
+width: 310px;
+}
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 15px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+button.primary-btn.text-uppercase {
+margin-left: 22px;
+}
+ul.nav-menu.active {
+background-color: #2d1facfa;
+/* float: left; */
+margin-left: -234px;
+margin-top: 33px;
+padding-left: 156px;
+/* margin-right: 84px; */
+}
+
+
+img.img-fluid.abtimg {
+height: 255px;
+border-radius: 251px;
+margin-top: -692px;
+margin-right: 82px;
+}
+.footer-bottom.d-flex.justify-content-between.align-items-center.flex-wrap {
+  margin-bottom: 111px;
+}
+.home-about-area .home-about-left .primary-btn {
+margin-top: 259px;
+background: #222;
+font-size: 14px;
+}
+section.home-about-area {
+margin-bottom: 606px;
+}
+section.home-about-area.inner {
+}
+.header-top .header-top-right {
+text-align: center;
+}
+
+.abt img.img-fluid {
+margin-left: 77px;
+height: 243px;
+width: 225px;
+margin-top: 60px;
+margin-bottom: -61px;
+}
+.footer-area {
+  background: rgb(33 40 114 / 90%);
+  padding-top: 38px;
+  margin-bottom: 612px;
+}
+i.fa.fa-bars {
+    margin-top: 61px;
+    margin-left: -55px;
+    font-size: 26px;
+    color: blue;
+}
 }

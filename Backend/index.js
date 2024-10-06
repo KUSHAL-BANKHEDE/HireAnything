@@ -6,7 +6,12 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const Partner = require('./models/Partner');
 
+
 require('dotenv').config();
+
+
+
+
 
 // Define a simple model for storing form data
 const FormModel = mongoose.model('Form', new mongoose.Schema({
