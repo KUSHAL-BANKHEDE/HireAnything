@@ -16,11 +16,7 @@ const SearchPage = () => {
 
     // Handle search functionality inside useEffect for live search
     useEffect(() => {
-        if (!query) {
-            setMessage('Please enter a search term.');
-            setResults([]);
-            return;
-        }
+  
 
         const lowercasedQuery = query.toLowerCase();
         const filteredResults = categories.filter(category =>

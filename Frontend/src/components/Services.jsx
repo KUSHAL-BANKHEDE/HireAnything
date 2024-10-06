@@ -75,7 +75,7 @@ const HireServices = [
                       <h4>{service.name}</h4>
                     </a>
                     <p>{service.info}</p>
-                    <Link  className="catprimary-btn text-uppercase" to="/signup">Get Quote</Link>
+                    <Link  className="catprimary-btn text-uppercase" to="/contact">Get Quote</Link>
                   </div>
                 </div>
               </div>
