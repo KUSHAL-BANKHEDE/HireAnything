@@ -12,10 +12,10 @@ const Aboutus = () => {
     <div className="aboutus">
 
 <section className="home-about-area inner">
-          <div className="page-wrapper container -fluid">
+          <div className="page-wrapper container-fluid">
             <div className="row align-items-center justify-content-end">
             <div className="col-lg-3 col-md-4  col-sm-12 home-about-right no-padding abt">
-            <img className="img-fluid" src={users} alt="" />
+            <img className="img-fluid abtimgs" height={700} width={700} src={users} alt="" />
               </div>
               <div className="col-lg-9 col-md-8 home-about-left">
               <h1>About Us</h1>

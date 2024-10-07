@@ -75,10 +75,10 @@ export default function Headers() {
     <>
     <ul className='btn'>
 
-<li> <a href="https://www.facebook.com/profile.php?id=61565067325640&sk=photos">
+<li> <a href="/signup">
       Signup
       </a></li>
-      <li> <a href="https://www.facebook.com/profile.php?id=61565067325640&sk=photos">
+      <li> <a href="/login">
        Login
       </a></li>
     </ul>

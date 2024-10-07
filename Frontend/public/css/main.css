@@ -69,7 +69,9 @@ $black			: #222;
   list-style: none; /* Removes the default bullet points */
   cursor: pointer; /* Changes the cursor to pointer */
 }
-
+form.siginform {
+  background-color: white;
+}
 .search-results li:last-child {
   border-bottom: none; /* Removes the border from the last item */
 }
@@ -870,7 +872,13 @@ td, th {
 .no-padding {
   padding: 0;
 }
-
+img.img-fluid.abtimgs {
+  height: 328px;
+  border-radius: 10px;
+  margin-top: 6px;
+  width: 457px;
+  margin-left: 77px;
+}
 .section-bg {
   background: #f9fafc;
 }
@@ -2695,9 +2703,7 @@ h3.primary-btn.cat {
 section.home-about-area {
   margin-bottom: 408px;
 }
-section.home-about-area.inner {
-  margin-bottom: 474px;
-}
+
 .section-title h1 {
   margin-bottom: 10px;
 }
@@ -3115,7 +3121,7 @@ section.home-about-area.inner {
 /*--------- end testimonial area  -------------*/
 /*--------- start home-about area  -------------*/
 .home-about-area .home-about-left {
-  padding-left: 15%;
+  padding-left: 7%;
   padding-top: 28px;
 }
 
@@ -3128,9 +3134,7 @@ section.home-about-area.inner {
 .home-about-area .home-about-left h1 {
   max-width: 510px;
 }
-.abt img.img-fluid {
-  margin-left: 135px;
-}
+
 @media (max-width: 1366px) {
   .home-about-area .home-about-left h1 {
     font-size: 20px;
@@ -5417,4 +5421,11 @@ i.fa.fa-bars {
     font-size: 26px;
     color: blue;
 }
+}
+img.img-fluid.abtimg {
+  height: 328px;
+  border-radius: 10px;
+  margin-top: 6px;
+  width: 457px;
+  margin-left: 238px;
 }
