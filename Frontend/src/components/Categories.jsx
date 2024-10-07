@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Admin_local } from '../utils/constent';
 
 const categories = [
     {
@@ -303,49 +304,85 @@ const categories = [
   
     // State for expanded categories
     const [expandedCategory, setExpandedCategory] = useState(null);
+    const [categories, setCategories] = useState([]); 
   
     // Toggle the expanded state
     const handleToggle = (category) => {
       setExpandedCategory(expandedCategory === category ? null : category);
     };
   
-    // Limit the services to the first 4 for the Home page
+   
+
+
+    useEffect(() => {
+      fetchCategory();
+    }, []);
+
+    const fetchCategory = async () => {
+      try {
+        const response = await fetch(`${Admin_local}/api/category`);
+        
+        // Check if the response is OK (status code 200–299)
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+    
+        const data = await response.json(); // Parse the JSON from the response
+        setCategories(data); // Set the fetched categories
+      } catch (error) {
+        console.error("Error fetching categories", error);
+      }
+    };
+        // Limit the services to the first 4 for the Home page
     const limitedServices = isHomePage ? categories.slice(0, 4) : categories;
-  
     return (
-      <>
-        <h3 className='primary-btn serv'>Our Service</h3>
-  
-        <section className="category-grid">
-          {limitedServices.map((item, index) => (
-            <div key={index} className="category-box">
-              <h3>
-                {item.category}
-                {!isHomePage && (
-                  <button onClick={() => handleToggle(item.category)} className="toggle-btn">
-                    {expandedCategory === item.category ? '-' : '+'}
-                  </button>
-                )}
-              </h3>
-              <ul style={{ display: isHomePage || expandedCategory === item.category ? 'block' : 'none' }}>
-                {item.subcategories.map((sub, i) => (
-                  <li key={i}>{sub}</li>
-                ))}
-              </ul>
+      <div className="categorypage">
+      <div className="page-wrapper container">
+        {/* Conditionally render the heading only on inner pages */}
+        {!isHomePage && (
+          <div className="row">
+            <div className="col-12 text-center mb-4">
+              <h3 className="primary-btn cat">Explore Our Categories</h3>
+              <h4>Discover Our Wide Range of Categories</h4>
+            </div>
+          </div>
+        )}
+        <h3 className="primary-btn">Find Affordable Options from Nearby Rental Providers</h3>
+
+        <div className="row">
+          {limitedServices.map((service, index) => (
+            <div className="col-lg-3 col-md-12 col-sm-12 mb-5" key={index}>
+              <div className="single-other-issue">
+                <div className="thumb">
+                  {/* Use the 'image' field from your backend */}
+                  <img className="img-fluid" src={service.image} alt={service.name} />
+                </div>
+                <div className="category-text">
+                  <a href="#">
+                    <h4>{service.name}</h4>
+                  </a>
+                  <p>{service.info}</p>
+                  <Link className="catprimary-btn text-uppercase" to="/signup">
+                    Get Quote
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
-        </section>
-  
+        </div>
+
+        {/* Show the "View All" button only on the Home page */}
         {isHomePage && (
           <div className="row">
-            <div className="col-12 text-center mb-2">
-              <Link to="/service" className="primary-btn text-uppercase">
+            <div className="col-12 text-center">
+              <Link to="/category" className="primary-btn text-uppercase">
                 View All
               </Link>
             </div>
           </div>
         )}
-      </>
+      </div>
+    </div>
     );
   };
   
