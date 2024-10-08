@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const Partner = require('./models/Partner');
+const authRoutes = require('./routes/authRoutes')
 
 
 require('dotenv').config();
@@ -200,6 +201,8 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@hir
 mongoose.connect(uri)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
+
+  app.use('/api/auth', authRoutes);
 
 // Start the server
 app.listen(port, () => {

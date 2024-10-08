@@ -13,7 +13,6 @@ const Signup = () => {
   const [currentField, setCurrentField] = useState('firstName');
   const [error, setError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isEmailUnique, setIsEmailUnique] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,7 +24,7 @@ const Signup = () => {
     setError(''); // Clear error when user starts typing
   };
 
-  const validateCurrentField = async () => {
+  const validateCurrentField = () => {
     if (!form[currentField].trim()) {
       setError(`${currentField.replace(/([A-Z])/g, ' $1').trim()} is required`);
       return false;
@@ -37,25 +36,13 @@ const Signup = () => {
         setError('Please enter a valid email address');
         return false;
       }
-
-      try {
-        const response = await axios.post('https://hireanything.com/check-email', { email: form.email });
-        if (!response.data.isUnique) {
-          setError('Email is already registered');
-          return false;
-        }
-      } catch (err) {
-        console.error('Error checking email uniqueness:', err);
-        setError('An error occurred while checking the email');
-        return false;
-      }
     }
 
     return true;
   };
 
-  const handleNext = async () => {
-    const isValid = await validateCurrentField();
+  const handleNext = () => {
+    const isValid = validateCurrentField();
     if (isValid) {
       switch (currentField) {
         case 'firstName':
@@ -87,14 +74,10 @@ const Signup = () => {
     } catch (error) {
       console.error('There was an error!', error);
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
         setError(`Server responded with status ${error.response.status}: ${error.response.data.message}`);
       } else if (error.request) {
-        // The request was made but no response was received
         setError('No response received from the server.');
       } else {
-        // Something happened in setting up the request that triggered an Error
         setError(`Error: ${error.message}`);
       }
     }
@@ -102,7 +85,7 @@ const Signup = () => {
 
   return (
     <Container className="mt-5">
-      <Form className='siginform'> 
+      <Form className="siginform"> 
         <h3>Sign Up</h3>
 
         {showSuccess && (
