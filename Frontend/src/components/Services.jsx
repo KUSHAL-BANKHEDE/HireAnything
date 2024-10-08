@@ -29,7 +29,7 @@ const HireServicesComponent = () => {
 
   return (
     <div className="categorypage">
-      <div className="page-wrapper container ">
+      <div className="page-wrapper container">
         {/* Conditionally render the heading only on the inner pages */}
         {!isHomePage && (
           <div className="row">
@@ -46,14 +46,14 @@ const HireServicesComponent = () => {
             <div className="col-lg-3 col-md-12 col-sm-12 mb-5" key={index}>
               <div className="single-other-issue">
                 <div className="thumb">
-                  <img className="img-fluid" src={service.image} alt={service.name} />
+                  <img className="img-fluid" src={service.image} alt={service.name} /> {/* Ensure 'image' is the correct property */}
                 </div>
                 <div className="category-text">
                   <a href="#">
                     <h4>{service.name}</h4>
                   </a>
                   <p>{service.info}</p>
-                  <Link className="catprimary-btn text-uppercase" to="/signup">Get Quote</Link>
+                  <Link className="catprimary-btn text-uppercase" to="/contact">Get Quote</Link> {/* Change the link to the correct route */}
                 </div>
               </div>
             </div>

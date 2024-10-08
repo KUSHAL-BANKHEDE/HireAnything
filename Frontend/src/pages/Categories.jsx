@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import Libraries from '../components/Libraries';
-import Headers from '../components/Headers';
 import Banner from '../components/Banner';
 import Category from '../components/Categories';
 
@@ -12,7 +11,6 @@ function Categories() {
     <>
               <Libraries/>
            
-            {/* <Headers/> */}
             <Banner/>
             <Category/>
             <Footer/>

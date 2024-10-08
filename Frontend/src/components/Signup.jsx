@@ -102,7 +102,7 @@ const Signup = () => {
 
   return (
     <Container className="mt-5">
-      <Form>
+      <Form className='siginform'> 
         <h3>Sign Up</h3>
 
         {showSuccess && (

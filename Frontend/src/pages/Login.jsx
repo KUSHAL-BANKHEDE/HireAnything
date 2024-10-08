@@ -1,18 +1,18 @@
 import { Outlet } from 'react-router-dom';
 import Libraries from '../components/Libraries';
-import Headers from '../components/Headers';
+
 import Banner from '../components/Banner';
 import Login  from '../components/Login';
 
 import Footer from '../components/Footer';
 
 
-function Categories() {
+function LoginPage() {
   return (
     <>
               <Libraries/>
            
-            {/* <Headers/> */}
+      
             <Banner/>
             <Login/>
             <Footer/>
@@ -22,4 +22,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default LoginPage;
