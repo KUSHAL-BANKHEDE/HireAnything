@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Local_host } from '../utils/constent';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -27,7 +28,7 @@ const Login = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/login', form, {
+      const response = await axios.post(`${Local_host}/api/auth/login`, form, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -35,7 +36,7 @@ const Login = () => {
       console.log('Full Response:', response);
       console.log('Response Data:', response.data);
 
-      if (response.data.message === 'Success') {
+      if (response.data.token) {
         setSuccess(true); // Set success state to true
         setError(null); // Clear any existing errors
         setTimeout(() => {

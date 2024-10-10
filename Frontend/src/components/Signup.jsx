@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { Local_host } from '../utils/constent';
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -65,7 +66,7 @@ const Signup = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost/hireanything', form);
+      const response = await axios.post(`${Local_host}/api/auth/register`, form);
       console.log('User created:', response.data);
       setShowSuccess(true);
       setTimeout(() => {
