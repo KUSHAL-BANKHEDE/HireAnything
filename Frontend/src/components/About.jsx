@@ -33,22 +33,29 @@ const Aboutus = () => {
 
   return (
     <div className="aboutus">
-
-<section className="home-about-area inner">
-          <div className="page-wrapper container -fluid">
-            <div className="row align-items-center justify-content-end">
-            <div className="col-lg-3 col-md-4  col-sm-12 home-about-right no-padding abt">
-            <img className="img-fluid" src={users} alt="" />
-              </div>
-              <div className="col-lg-9 col-md-8 home-about-left">
+      <section className="home-about-area inner">
+        <div className="page-wrapper container-fluid">
+          <div className="row align-items-center justify-content-end">
+            <div className="col-lg-3 col-md-4 col-sm-12 home-about-right no-padding abt">
+              {/* Display the first About Us image */}
+              <img
+                className="img-fluid"
+                src={aboutUsData[0]?.image}
+                alt="About Us"
+              />
+            </div>
+            <div className="col-lg-9 col-md-8 home-about-left">
               <h1>About Us</h1>
-              <p>{aboutUsData[0]?.info}</p>
+              <p>{aboutUsData[0]?.aboutus}</p>
+
               <h3>A Marketplace for Hire Services</h3>
-              <p>Our team is unique, with {aboutUsData[0]?.teamExperience} years of experience in the hire industry.</p>
+              <p>{aboutUsData[0]?.marketPlace}</p>
+
               <h3>The Problem</h3>
-              <p>{aboutUsData[0]?.problemStatement}</p>
+              <p>{aboutUsData[0]?.problem}</p>
+
               <h3>The Solution</h3>
-              <p>{aboutUsData[0]?.solutionStatement}</p>
+              <p>{aboutUsData[0]?.solution}</p>
             </div>
           </div>
         </div>
