@@ -12,6 +12,7 @@ import MyService from '../pages/Service';
 import Partner from '../pages/Partnerbook';
 import Layout from '../components/Layout'; // Import the layout
 import LoginPage from '../components/Login';
+import Discprition from '../pages/Discprition';
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         path: 'login',
         element: <LoginPage />,
       },
+      {
+        path: 'discprition',
+        element: <Discprition/>
+      }
     ],
   },
 ]);
