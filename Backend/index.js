@@ -5,7 +5,9 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const Partner = require('./models/Partner');
-const authRoutes = require('./routes/authRoutes')
+const authRoutes = require('./routes/authRoutes');
+const contactRoutes =require('./routes/contactRoutes');
+
 
 
 require('dotenv').config();
@@ -203,6 +205,10 @@ mongoose.connect(uri)
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
   app.use('/api/auth', authRoutes);
+
+  
+   app.use('/api/contact', contactRoutes);
+
 
 // Start the server
 app.listen(port, () => {

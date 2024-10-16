@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Local_host } from '../utils/constent';
 
 // Contactmy Component
 const Contactmy = () => {
@@ -38,10 +39,28 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    try {
+      const response = await fetch(`${Local_host}/api/contact/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message); // Show success message
+      } else {
+        alert(result.message); // Show error message
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      alert('There was a problem submitting the form');
+    }
   };
 
   return (
