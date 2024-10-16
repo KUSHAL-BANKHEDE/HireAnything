@@ -8,7 +8,7 @@ const navlinks = [
   { name: 'Category', route: '/category' },
   { name: 'Our Services', route: '/service' },
   { name: 'Partner Signup', route: '/partner' },
-  { name: 'Offerings', route: '/service' },
+  { name: 'Offerings', route: '/Vendors' },
   { name: 'Contact', route: '/contact' },
 ];
 

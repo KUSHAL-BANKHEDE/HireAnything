@@ -1,21 +1,21 @@
 import { Outlet } from 'react-router-dom';
 import Libraries from '../components/Libraries';
 import Banner from '../components/Banner';
-import DescriptionPage from '../components/DescriptionPage';
+import Vendorcon from '../components/Vendor';
 import Footer from '../components/Footer';
 
 
 
 
 
-function Discprition() {
+function Vendors() {
   return (
     <>
             <Libraries/>
             {/* <Headers/> */}
             <Banner/>
             
-            <DescriptionPage/>
+            <Vendorcon/>
             <Footer/>
 
             <Outlet />
@@ -24,4 +24,4 @@ function Discprition() {
   );
 }
 
-export default Discprition;
+export default Vendors;

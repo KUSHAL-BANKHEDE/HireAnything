@@ -82,7 +82,7 @@ const OrderCard = ({ order }) => {
   );
 };
 
-const DescriptionPage = () => {
+const Vendorcon = () => {
   return (
     <div className="container mx-auto p-6">
       {orders.map((order, index) => (
@@ -92,4 +92,4 @@ const DescriptionPage = () => {
   );
 };
 
-export default DescriptionPage;
+export default Vendorcon;
