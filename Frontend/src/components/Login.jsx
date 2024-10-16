@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Local_host } from '../utils/constent';
+
+// Function to check if user is authenticated
+const isAuthenticated = () => {
+  const token = localStorage.getItem('authToken');
+  console.log('Checking auth token:', token); // Log the token for debugging
+  return token !== null; // Check if token exists
+};
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -11,6 +18,7 @@ const Login = () => {
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false); // State for success message
+  const [loading, setLoading] = useState(false); // State for loading indicator
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,20 +35,25 @@ const Login = () => {
       setError('Please fill in all fields');
       return;
     }
+
+    setLoading(true); // Start loading
     try {
       const response = await axios.post(`${Local_host}/api/auth/login`, form, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
+
       console.log('Full Response:', response);
       console.log('Response Data:', response.data);
 
       if (response.data.token) {
+        // Store the token in localStorage
+        localStorage.setItem('authToken', response.data.token);
         setSuccess(true); // Set success state to true
         setError(null); // Clear any existing errors
         setTimeout(() => {
-          navigate('/'); // Redirect to the home page after a short delay
+          navigate('/Vendors'); // Redirect to the Vendor page after a short delay
         }, 2000); // Delay for showing the success message
       } else {
         setError('Invalid credentials');
@@ -54,6 +67,8 @@ const Login = () => {
         setError('Login failed. Please try again.');
       }
       setSuccess(false);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -63,7 +78,7 @@ const Login = () => {
         <h3>Sign In</h3>
         {success && (
           <Alert variant="success">
-            Login successful! Redirecting to the home page...
+            Login successful! Redirecting to the Offering Page...
           </Alert>
         )}
         {error && <Alert variant="danger">{error}</Alert>}
@@ -75,6 +90,7 @@ const Login = () => {
             placeholder="Enter email"
             value={form.email}
             onChange={handleChange}
+            required // Add required for accessibility
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -85,16 +101,17 @@ const Login = () => {
             placeholder="Enter password"
             value={form.password}
             onChange={handleChange}
+            required // Add required for accessibility
           />
         </Form.Group>
         <Form.Group className="mb-5">
-          <Form.Check type="checkbox"  variant="primary" label="Remember me" />
+          <Form.Check type="checkbox" variant="primary" label="Remember me" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="primary" type="submit" disabled={loading}>
+          {loading ? <Spinner animation="border" size="sm" /> : 'Submit'}
         </Button>
         <p className="mt-3">
-           <a href="#"className='primary-btn'> Forgot password?</a>
+           <a href="#" className='primary-btn'> Forgot password?</a>
         </p>
       </Form>
     </Container>
